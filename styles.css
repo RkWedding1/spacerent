@@ -1,0 +1,350 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.nav-button {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.sidebar {
+    width: 16rem;
+    min-height: 100vh;
+    background: #fff;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1040;
+}
+
+/* Hide sidebar by default on small screens */
+@media (max-width: 767.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+.sidebar .nav-button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    color: #4b5563;
+    border-radius: 0.75rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar .nav-button.active,
+.sidebar .nav-button:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.sidebar .nav-button svg {
+    stroke: currentColor;
+}
+
+.sidebar-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar-header h1 {
+    margin: 0;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.sidebar-header p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-footer .user-initials {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.sidebar-footer .user-info {
+    margin-left: 1rem;
+    flex-grow: 1;
+}
+
+.sidebar-footer .user-info p {
+    margin: 0;
+}
+
+header {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* or space-between if you want items spaced */
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.search-container {
+    flex-grow: 1;
+    position: relative;
+    max-width: 600px;
+}
+
+.search-input {
+    padding-left: 2.5rem;
+}
+
+.search-svg {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    stroke: #9ca3af;
+}
+
+.header-icons button {
+    background: transparent;
+    border: none;
+    color: #4b5563;
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+}
+
+.header-icons button:hover {
+    background: #f3f4f6;
+    color: #1e40af;
+}
+
+.header-icons .badge {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #2563eb;
+    border-radius: 9999px;
+}
+
+.header-icons .badge-red {
+    background-color: #dc2626;
+}
+
+main {
+    flex-grow: 1;
+    margin-left: 16rem;
+    padding: 1.5rem;
+    background: #f9fafb;
+    height: 100vh;
+    /* overflow-y: auto; */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Main full width when sidebar hidden on mobile */
+@media (max-width: 767.98px) {
+    main {
+        margin-left: 0;
+    }
+}
+
+.dashboard-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-icon {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.dashboard-icon.blue {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.dashboard-icon.green {
+    background-color: #dcfce7;
+    color: #22c55e;
+}
+
+.dashboard-icon.purple {
+    background-color: #ede9fe;
+    color: #7c3aed;
+}
+
+.dashboard-icon.orange {
+    background-color: #ffedd5;
+    color: #f97316;
+}
+
+.dashboard-stat {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.dashboard-label {
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.hamburger-btn {
+    display: none;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #2563eb;
+    margin-right: auto;
+}
+
+@media (max-width: 767.98px) {
+    .hamburger-btn {
+        display: inline-block;
+    }
+}
+
+.content-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1035;
+}
+
+.content-overlay.show {
+    display: block;
+}
+
+form.booking-form {
+    margin: 0 auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+form.booking-form .form-group {
+    margin-bottom: 1rem;
+}
+
+form.booking-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+form.booking-form input,
+form.booking-form select,
+form.booking-form textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
+}
+
+form.booking-form textarea {
+    resize: vertical;
+}
+
+form.booking-form button {
+    margin-top: 1rem;
+}
+
+form.booking-form .grid-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+
+/* Ensures uniform card heights and aligned buttons */
+.row.g-4 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.g-4>[class*='col-'] {
+    display: flex;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-gradient {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    transition: 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #1e40af, #6d28d9);
+    transform: translateY(-2px);
+}
